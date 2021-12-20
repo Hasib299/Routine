@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>HTML-to-PDF Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="html2pdf.bundle.min.js"></script>
+  </head>
+  <style>
+    #invoice table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #invoice td,
+    #invoice th {
+      border: 1px solid rgb(153, 153, 153);
+      padding: 8px;
+      text-align: center;
+    }
+
+    #invoice tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #invoice tr:hover {
+      background-color: #ddd;
+    }
+
+    #invoice th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04aa6d;
+      color: white;
+    }
+    .downParent {
+      width: fit-content;
+      margin: 0 auto;
+    }
+    .download {
+      margin-top: 30px;
+      background-color: #04aa6d;
+      border: none;
+      text-transform: uppercase;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      width: 200px;
+      transition: all 0.5s;
+      padding: 10px;
+    }
+
+    .download:hover {
+      transition: all 0.5s;
+      transform: scale(1.1);
+      color: black;
+      contain: "Download PDF";
+    }
+  </style>
+  <body>
+    <div id="invoice">
+      <table>
+        <caption>
+          <h1>Electronics 4th Class Routine</h1>
+        </caption>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>08:45 AM - 09:30 AM</th>
+            <th>09:30 AM - 10:15 AM</th>
+            <th>10:15 AM - 11:00 AM</th>
+            <th>11:00 AM - 11:45 AM</th>
+            <th>11:45 AM - 12:30 PM</th>
+            <th>12:30 PM - 01:15 PM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Saturday</td>
+            <td>66845 SK 302</td>
+            <td colspan="3">66743 MA ET LAB</td>
+            <td>66841 MA 302</td>
+            <td>X</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>66743 MA 302</td>
+            <td>66842 AK 302</td>
+            <td>65841 IA 302</td>
+            <td colspan="3">66841 MA MICRO PRO LAB</td>
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>66743 MA 302</td>
+            <td colspan="3">66845 SK ET LAB</td>
+            <td>X</td>
+            <td>X</td>
+          </tr>
+
+          <tr>
+            <td>Tuesday</td>
+            <td>66743 MA 302</td>
+            <td>66842 AK 302</td>
+            <td>66631 TB 302</td>
+            <td colspan="3">66844 MR. ENT ENT LAB</td>
+          </tr>
+
+          <tr>
+            <td>Wednesday</td>
+            <td>66743 MA 302</td>
+            <td>66631 TB 302</td>
+            <td>65841 IA 302</td>
+            <td colspan="3">66842 AK MICRO PRO LAB</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>66841 MA 302</td>
+            <td>66842 AK 302</td>
+            <td>66845 SK 302</td>
+            <td colspan="3">66631 TB ICT LAB</td>
+          </tr>
+          <tfoot>
+            <td style="background-color: #04aa6d;color: #000000;font-weight: bold;" colspan="7">Created By Hasib</td>
+          </tfoot>
+        </tbody>
+      </table>
+      <div class="downParent">
+        <button class="download">Download</button>
+      </div>
+    </div>
+
+    <script>
+      function download(fileUrl, fileName) {
+        var a = document.createElement("a");
+        a.href = fileUrl;
+        a.setAttribute("download", fileName);
+        a.click();
+      }
+
+      const file ='./file/ENT_4th_Class_Rooting.pdf';
+
+      const button = document.querySelector(".download");
+      button.addEventListener("click", () => {
+        return download(file, "ENT_4th_Class_Rooting_.pdf");
+      });
+    </script>
+  </body>
+</html>
